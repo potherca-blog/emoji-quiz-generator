@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Emoji Quiz Generator</title>
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Dekko|Raleway:400,800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+
+  <script
+    crossorigin="anonymous"
+    integrity="sha256-y9xVOgmBqPHwdnAHyi5OTSACwsNHlHx+IVI5HVVHfQM="
+    src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"
+  ></script>
+</head>
+
+<body>
+  <section class="js-instructions emoji-song-quiz-instructions">
+    <h1>Usage instructions</h1>
+
+    <h2></h2>
+    <p>Fill in this form to get an emoji</p>
+    <form method="get" action="">
+      <label>
+        <span>type</span>
+        <input name="type" placeholder="song" />
+      </label>
+
+      <label>
+        <span>emoji</span>
+        <input name="emoji" placeholder="🏁⏲️⬇️" />
+      </label>
+
+      <label>
+        <span>episode</span>
+        <input name="episode" placeholder="123" />
+      </label>
+
+      <label>
+        <span>month</span>
+        <input name="month" placeholder="" />
+      </label>
+      <label>
+        <span>topic</span>
+        <input name="topic" placeholder="Earworms" />
+      </label>
+      <label>
+        <span>description</span>
+        <input
+          name="description"
+          placeholder="songs that get stuck in your head"
+        />
+      </label>
+
+      <label>
+        <span>follow-up</span>
+        <input name="follow-up" placeholder="" />
+      </label>
+
+      <button>▶️ Go!</button>
+    </form>
+
+    <h2></h2>
+    <p>Call this URL with any of the following URL parameters:</p>
+
+    <ul>
+      <li><code>description</code></li>
+      <li><code>emoji</code></li>
+      <li><code>episode</code></li>
+      <li><code>follow-up</code></li>
+      <li><code>month</code></li>
+      <li><code>topic</code></li>
+      <li><code>type</code></li>
+    </ul>
+
+    <p>
+      For example:
+      <a
+        href="?type=song&episode=123&emoji=🏁⏲️⬇️&month=november&topic=Earworms&description=songs that get stuck in your head"
+      >
+        ?episode=123&emoji=🏁⏲️⬇️&month=november&topic=Earworms&description=songs
+        that get stuck in your head
+      </a>
+    </p>
+  </section>
+
+  <article class="emoji-song-quiz">
+    <hgroup class="emoji-song-quiz__header">
+      <h1 class="emoji-song-quiz__announcement">
+        Time for the
+        <strong class="emoji-song-quiz__announcement--title">
+          What <span class="js-type"></span> is this emoji?
+        </strong>
+        quiz!
+      </h1>
+      <h2 class="emoji-song-quiz__episode">
+        Episode <span class="js-episode" data-js="episode"></span>
+      </h2>
+    </hgroup>
+
+    <main class="emoji-song-quiz__emoji js-emoji" data-js="emoji"></main>
+
+    <section class="emoji-song-quiz__topic-container">
+      <!-- @FIXME: Add extra template entry here so JS can be cleaned up
+    <p class="emoji-song-quiz__topic emoji-song-quiz__topic--without-month">
+      This episode's theme is
+      <b class="emoji-song-quiz__topic--name js-topic" data-js="topic"></b>
+    </p>
+-->
+      <p class="emoji-song-quiz__topic emoji-song-quiz__topic--with-month">
+        The entire month of
+        <span
+          class="emoji-song-quiz__topic--month js-month"
+          data-js="month"
+        ></span>
+        is
+        <b class="emoji-song-quiz__topic--name js-topic" data-js="topic"></b>
+        month!
+      </p>
+
+      <em
+        class="emoji-song-quiz__topic--description js-description"
+        data-js="description"
+      ></em>
+    </section>
+
+    <footer class="emoji-song-quiz__follow-up js-follow-up">
+      Open the thread to answer...
+    </footer>
+  </article>
+
+  <div class="canvas-container"></div>
+
+  <script src="js/populateTemplate.js"></script>
+  <script src="js/createImage.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
