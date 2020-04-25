@@ -1,0 +1,215 @@
+/**
+ * The version of html2canvas that is used (1.0.0-rc.5) has some know
+ * limitations. Because of this, the following properties should not be used:
+ *
+ * - background-blend-mode
+ * - border-image
+ * - box-decoration-break
+ * - box-shadow
+ * - filter
+ * - font-variant-ligatures
+ * - mix-blend-mode
+ * - object-fit
+ * - repeating-linear-gradient()
+ * - writing-mode
+ * - zoom
+ *
+ * The following properties have limits to what can be used:
+ *
+ * - background-clip Does not support "text"
+ * - border-style Only supports "solid"
+ * - text-decoration-style Only supports "solid"
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+canvas {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
+}
+
+.canvas-container {
+  background-color: rgba(100%, 100%, 100%, 0.4);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+.emoji-song-quiz {
+  --box-size: 20em;
+  --contrast-color: #FFF;
+  --light-color: #808080;
+  --primary-color: #FFE570;
+  --secondary-color: #000;
+
+  background-color: var(--primary-color);
+  /*border: 1px solid black;*/
+  display: flex;
+  flex-direction: column;
+  font-family: "Raleway", sans-serif;
+  font-size: 200%;
+  height: var(--box-size);
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: var(--box-size);
+}
+
+.emoji-song-quiz__header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.emoji-song-quiz__announcement {
+  font-size: 150%;
+  font-weight: normal;
+  margin-top: 2%;
+}
+
+.emoji-song-quiz__announcement--title {
+  display: block;
+  font-weight: bold;
+}
+
+.emoji-song-quiz__episode {
+  background-color: var(--secondary-color);
+  border-radius: 1em;
+  color: var(--primary-color);
+  font-family: "Dekko", cursive;
+  font-size: 85%;
+  font-style: italic;
+  left: 75%;
+  padding: 0 2%;
+  position: relative;
+  text-align: left;
+  top: -1.25em;
+  width: 50%;
+}
+
+.emoji-song-quiz__emoji {
+  align-items: center;
+  background-color: var(--contrast-color);
+  border-radius: 0.35em;
+  display: flex;
+  font-size: 400%;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 4% 0.2em;
+  white-space: nowrap;
+}
+
+.emoji-song-quiz__topic-container {
+  background-color: var(--primary-color);
+  background-image: url(./ribbon.png);
+  background-position: center 2px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-top: 3px solid var(--primary-color);
+  bottom: 7%;
+  margin: 0.4em;
+  min-height: 4em;
+  position: absolute;
+  width: 100%;
+}
+
+.emoji-song-quiz__topic {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 80%;
+  height: 3em;
+  margin: 0 auto;
+  max-width: 60%;
+  padding: 2%;
+  place-content: center;
+}
+
+.emoji-song-quiz__topic--month,
+.emoji-song-quiz__topic--name {
+  margin: 0 1%;
+  text-transform: capitalize;
+}
+
+.emoji-song-quiz__topic--name {
+  font-weight: bold;
+}
+
+.emoji-song-quiz__topic--description {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  display: inline-flex;
+  font-size: 60%;
+  min-height: 1em;
+  padding: 0 0.1em;
+  position: relative;
+  top: -1em;
+}
+
+.emoji-song-quiz__topic--description::after {
+  content: ")";
+}
+
+.emoji-song-quiz__topic--description::before {
+  content: "(";
+}
+
+.emoji-song-quiz__follow-up {
+  background-color: var(--secondary-color);
+  bottom: 0;
+  color: var(--contrast-color);
+  font-size: 65%;
+  padding: 1%;
+  position: absolute;
+  width: 100%;
+}
+
+/* Disable / Hide specific elements
+ ******************************************************************************/
+
+.emoji-song-quiz--no-topic .emoji-song-quiz__emoji {
+  position: relative;
+  top: 5%;
+}
+
+.emoji-song-quiz--no-topic .emoji-song-quiz__topic-container {
+  display: none;
+}
+
+.emoji-song-quiz--no-description .emoji-song-quiz__topic--description {
+  visibility: hidden;
+}
+
+.emoji-song-quiz--no-follow-up .emoji-song-quiz__follow-up,
+.emoji-song-quiz--no-episode .emoji-song-quiz__episode {
+  display: none;
+}
+
+.emoji-song-quiz-instructions {
+  display: none;
+  font-family: "Raleway", sans-serif;
+  max-width: 40em;
+}
+
+.emoji-song-quiz-instructions label {
+  display: block;
+}
