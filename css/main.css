@@ -121,7 +121,7 @@ body * {
 
 .emoji-song-quiz__topic-container {
   background-color: var(--primary-color);
-  background-image: url(./ribbon.png);
+  background-image: url(./../ribbon.png);
   background-position: center 2px;
   background-repeat: no-repeat;
   background-size: contain;
