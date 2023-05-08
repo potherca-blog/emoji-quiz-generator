@@ -26,6 +26,7 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 canvas {
   max-height: 100%;
@@ -94,17 +95,17 @@ body * {
 
 .emoji-song-quiz__episode {
   background-color: var(--secondary-color);
-  border-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
   color: var(--primary-color);
   font-family: "Dekko", cursive;
   font-size: 85%;
   font-style: italic;
-  left: 75%;
   padding: 0 2%;
-  position: relative;
+  position: absolute;
+  right: 0;
   text-align: left;
-  top: -1.25em;
-  width: 50%;
+  top: 85%;
 }
 
 .emoji-song-quiz__emoji {
@@ -126,7 +127,8 @@ body * {
   background-repeat: no-repeat;
   background-size: contain;
   border-top: 3px solid var(--primary-color);
-  bottom: 7%;
+  bottom: 4em;
+  font-size: 70%;
   margin: 0.4em;
   min-height: 4em;
   position: absolute;
